@@ -10,15 +10,15 @@ public class Individual extends Client {
 
     @Override
     public String toString() {
-        return super.toString() + ' ' + "lanstname= " + lastname;
+        return super.toString() + ' '+ lastname;
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (this != obj) return false;
-        if ((obj == null) || !(obj instanceof Objects)) return false;
+        if (this == obj) return true;
+        if ((obj == null) || getClass() != obj.getClass()) return false;
         Individual another = (Individual) obj;
-        return super.equals(obj) && lastname == another.lastname;
+        return super.equals(obj) && lastname.equals(another.lastname);
     }
 
     @Override

@@ -13,13 +13,9 @@ public class Holding extends Client {
 
     @Override
     public boolean equals(Object obj) {
-        if (this != obj) return false;
-        if ((obj == null) || !(obj instanceof Objects)) return false;
+        if (this == obj) return true;
+        if ((obj == null) || getClass() != obj.getClass()) return false;
         return super.equals(obj);
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(super.hashCode());
-    }
 }

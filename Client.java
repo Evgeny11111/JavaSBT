@@ -19,15 +19,15 @@ public class Client {
 
     @Override
     public String toString() {
-        return  "Client{" + "name= " + name + ' ' + "inn= " + inn;
+        return  name + ' ' + inn;
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Client client = (Client) o;
-        return inn == client.inn && name.equals(client.name);
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Client another = (Client) obj;
+        return inn == another.inn && name.equals(another.name);
     }
 
     @Override

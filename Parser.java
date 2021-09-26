@@ -1,17 +1,8 @@
-import java.io.*;
 import java.math.BigInteger;
-import java.nio.file.FileSystems;
-import java.nio.file.Path;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 public class Parser {
-
-    public static Client parse(Path path) throws Exception {
-        Scanner scanner = new Scanner(path);
-        return metodEnum(scanner);
-    }
 
     public static Client metodIf(Scanner scanner) {
         HashMap<String, String> m = getData(scanner);
@@ -32,10 +23,7 @@ public class Parser {
 
     private static HashMap<String, String> getData(Scanner scanner) {
         HashMap<String, String> m = new HashMap<>();
-        String line = scanner.nextLine();
         BigInteger num;
-        if (line.charAt(0) != '{')
-            throw new RuntimeException();
         while (scanner.hasNext()) {
             String key, val;
             scanner.useDelimiter("\"");
