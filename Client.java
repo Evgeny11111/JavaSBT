@@ -1,3 +1,5 @@
+package ru.sbt;
+
 import java.util.Objects;
 
 public class Client {

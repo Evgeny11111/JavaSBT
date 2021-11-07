@@ -1,4 +1,5 @@
-import java.util.Objects;
+package ru.sbt;
+
 
 public class Holding extends Client {
 
@@ -18,4 +19,8 @@ public class Holding extends Client {
         return super.equals(obj);
     }
 
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
 }

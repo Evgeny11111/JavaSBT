@@ -1,29 +1,31 @@
-import java.math.BigInteger;
+package ru.sbt;
+
+
 import java.util.HashMap;
 import java.util.Scanner;
 
 public class Parser {
 
-    public static Client metodIf(Scanner scanner) {
-        HashMap<String, String> m = getData(scanner);
+    public Client metodIf(Scanner scanner) {
+        HashMap<String, String> mapData = getData(scanner);
         Client client = new Client("", 0);
-        if (m.get("clientType").equals("LEGAL_ENTITY")) {
-            return new LegalEntity(m.get("name"), Integer.parseInt(m.get("inn")), Integer.parseInt(m.get("income")));
-        } else if (m.get("clientType").equals("INDIVIDUAL"))
-            return new Individual(m.get("name"), Integer.parseInt(m.get("inn")), m.get("lastname"));
-        else if (m.get("clientType").equals("HOLDING"))
-            return new Holding(m.get("name"), Integer.parseInt(m.get("inn")));
+        if (mapData.get("clientType").equals("LEGAL_ENTITY"))
+            return new LegalEntity(mapData.get("name"), Integer.parseInt(mapData.get("inn")), Integer.parseInt(mapData.get("income")));
+        else if (mapData.get("clientType").equals("INDIVIDUAL"))
+            return new Individual(mapData.get("name"), Integer.parseInt(mapData.get("inn")), mapData.get("lastname"));
+        else if (mapData.get("clientType").equals("HOLDING"))
+            return new Holding(mapData.get("name"), Integer.parseInt(mapData.get("inn")));
         return client;
     }
 
-    public static Client metodEnum(Scanner scanner) {
+    public Client metodEnum(Scanner scanner) {
         HashMap<String, String> dataHash = getData(scanner);
-        return ClientType.type.newClient(dataHash);
+        return Type.newClient(dataHash);
     }
 
     private static HashMap<String, String> getData(Scanner scanner) {
-        HashMap<String, String> m = new HashMap<>();
-        BigInteger num;
+        HashMap<String, String> mapData = new HashMap<>();
+        int num;
         while (scanner.hasNext()) {
             String key, val;
             scanner.useDelimiter("\"");
@@ -31,9 +33,9 @@ public class Parser {
             key = scanner.next();
             scanner.skip("\": ");
             scanner.useDelimiter(",|\\r|\\n");
-            if (scanner.hasNextBigInteger()) {
-                num = scanner.nextBigInteger();
-                m.put(key, "" + num);
+            if (scanner.hasNextInt()) {
+                num = scanner.nextInt();
+                mapData.put(key, "" + num);
                 try {
                     scanner.skip(",");
                 } catch (Exception e) {
@@ -42,7 +44,7 @@ public class Parser {
             } else {
                 scanner.useDelimiter("\"");
                 val = scanner.next();
-                m.put(key, val);
+                mapData.put(key, val);
                 try {
                     scanner.skip("\",");
                 } catch (Exception e) {
@@ -50,6 +52,6 @@ public class Parser {
                 }
             }
         }
-        return m;
+        return mapData;
     }
 }

@@ -1,3 +1,5 @@
+package ru.sbt;
+
 
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
@@ -7,9 +9,10 @@ public class Main {
     public static void main(String[] args)throws Exception {
         try {
             Client client;
-            Path path = FileSystems.getDefault().getPath("C:\\Users\\Evgeny\\Desktop\\Java\\firstHometask\\src", "Example");
+            Parser parser = new Parser();
+            Path path = FileSystems.getDefault().getPath("C:\\Users\\Evgeny\\Desktop\\Java\\firstHometask\\src", "ru/sbt/Example");
             Scanner scanner = new Scanner(path);
-            client = Parser.metodIf(scanner);
+            client = parser.metodIf(scanner);
             System.out.println(client.toString() + ' ' + client.getClass() );
         } catch (Exception e) {
             System.out.println(e.getMessage());
