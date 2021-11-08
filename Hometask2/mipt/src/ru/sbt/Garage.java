@@ -1,66 +1,62 @@
 package ru.sbt;
 
+
 import java.util.Collection;
+import java.util.List;
+import java.util.Map;
 
 public interface Garage {
-    static Collection<Owner> allCarsUniqueOwners(){
-        return null;
-    }
+    List<Owner> allCarsUniqueOwners();
 
     /**
      * Complexity should be less than O(n)
      */
-    static Collection<Car> topThreeCarsByMaxVelocity() {
-        return null;
-    }
+    Collection<Car> topThreeCarsByMaxVelocity();
 
     /**
      * Complexity should be O(1)
      */
-    static Collection<Car> allCarsOfBrand(String brand) {
-        return null;
-    }
+    List<Car> allCarsOfBrand(String brand);
 
     /**
      * Complexity should be less than O(n)
      */
-    static Collection<Car> carsWithPowerMoreThan(int power){
-        return  null;
-    }
+    List<Car> carsWithPowerMoreThan(int power);
 
     /**
      * Complexity should be O(1)
      */
-    static Collection<Car> allCarsOfOwner(Owner owner){
-        return null;
-    }
+    List<Car> allCarsOfOwner(Owner owner);
 
     /**
      * @return mean value of owner age that has cars with given brand
      */
-    static int meanOwnersAgeOfCarBrand(String brand){
-        return 0;
-    }
+    int meanOwnersAgeOfCarBrand(String brand);
 
     /**
      * @return mean value of cars for all owners
      */
-    static int meanCarNumberForEachOwner(){
-        return 0;
-    }
+    int meanCarNumberForEachOwner();
 
     /**
      * Complexity should be less than O(n)
      *
      * @return removed car
      */
-    static Car removeCar(int carId){
-        return null;
-    }
+    Car removeCar(int carId);
 
     /**
      * Complexity should be less than O(n)
      */
-    static void addCar(Car car, Owner owner){
-    }
+    void addCar(Car car, Owner owner);
+
+    Map<Car, Owner> getAngar();
+
+    Map<Integer, Integer> getCarsForOne();
+
+    Map<String, List<Car>> getBrandToCars();
+
+    Map<Owner, List<Car>> getCarsOwners();
+
+    Map<Owner, Integer> getOwnersToAge() ;
 }

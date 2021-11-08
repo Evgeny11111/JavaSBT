@@ -1,8 +1,5 @@
 package ru.sbt;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
 
 public class Car {
     private final long carId;
