@@ -18,31 +18,27 @@ public class Program {
         Car carr5 = new Car(64534235, "Porshe", "Legkov", 260, 350, 234563);
         Car carr6 = new Car(12353456, "Audi", "TT", 280, 330, 234563);
 
-        angar.put(carr1, ownerr1);
-        angar.put(carr2, ownerr1);
-        angar.put(carr3, ownerr2);
-        angar.put(carr4, ownerr3);
-        angar.put(carr5, ownerr3);
-        angar.put(carr6, ownerr3);
+        Car carr7 = new Car(25345399, "Volvo", "Legko", 222, 156, 35353);
+        Owner ownerr4 = new Owner(35353, "Eugeny", "Vagapov", 23);
+        Car carr8 = new Car(34243599, "Bmw", "X", 231, 206, 35353);
+        Owner ownerr5 = new Owner(12312, "Anton", "Belokopytov", 22);
+        Car carr9 = new Car(41345399, "Audi", "Legko", 241, 256, 123124);
+        Owner ownerr6 = new Owner(23456, "Vladimir", "Tolmachev", 17);
+
 
 
 
         Garage garage = new Angar(angar);
-        System.out.println("=========================================");
-        for (Owner owner : garage.allCarsUniqueOwners()) {
-            System.out.println(owner.getOwnerId());
-        }
-        System.out.println("=========================================");
+        garage.addCar(carr1,ownerr1);
+        System.out.println(garage.getCarsForOne());
 
-        garage.removeCar(12353456);
-        garage.addCar(carr6, ownerr3);
-        for (Car car : garage.getAngar().keySet()) {
-            System.out.println(car.getBrand() + ": " + garage.getAngar().get(car).getName());
-        }
+        System.out.println();
+        System.out.println(garage.removeCar(carr1.getCarId()));
+        System.out.println(garage.removeCar(carr8.getCarId()));
+        System.out.println(garage.removeCar(231131));
+        System.out.println(garage.getCarsForOne());
 
 
-        System.out.println(garage.meanCarNumberForEachOwner());
-        System.out.println(garage.meanOwnersAgeOfCarBrand("Audi"));
     }
 
 }

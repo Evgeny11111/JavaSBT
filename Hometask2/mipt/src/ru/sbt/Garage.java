@@ -43,7 +43,7 @@ public interface Garage {
      *
      * @return removed car
      */
-    Car removeCar(int carId);
+    Car removeCar(long carId);
 
     /**
      * Complexity should be less than O(n)
